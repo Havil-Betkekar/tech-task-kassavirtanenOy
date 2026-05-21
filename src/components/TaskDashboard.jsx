@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   MOCK_PROJECTS,
   MOCK_USERS,
@@ -6,9 +7,11 @@ import {
 } from "../api/mockApi";
 // import TaskCard from "./TaskCard";
 import "./TaskDashboard.css";
+import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 
 const TaskDashboard = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   // hardcoded for now, will come from Redux later
   const tasks = [
     {
@@ -27,13 +30,19 @@ const TaskDashboard = () => {
       ],
     },
   ];
+  const handleCreateTask = async (data) => {
+    console.log("New task data:", data); // will replace with Redux dispatch later
+  };
+
   return (
     <>
       <div className="dashboard-wrapper">
         {/* Header code*/}
         <div className="dashboard-header card">
           <h1 className="dashboard-title">Task Management Dashboard</h1>
-          <button className="btn-create">+ Create Task</button>
+          <button className="btn-create" onClick={() => setIsFormOpen(true)}>
+            + Create Task
+          </button>
         </div>
         {/* Header code*/}
 
@@ -94,6 +103,12 @@ const TaskDashboard = () => {
           onDeleteTask={(id) => console.log("delete", id)}
         />
         {/* card  */}
+        {/* Task Form Modal */}
+        <TaskForm
+          isOpen={isFormOpen}
+          onClose={() => setIsFormOpen(false)}
+          onSubmit={handleCreateTask}
+        />
       </div>
     </>
   );
