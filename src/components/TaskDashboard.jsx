@@ -4,9 +4,29 @@ import {
   STATUSES,
   TASK_TYPES,
 } from "../api/mockApi";
-import "./TaskDashoard.css";
+// import TaskCard from "./TaskCard";
+import "./TaskDashboard.css";
+import TaskList from "./TaskList";
 
 const TaskDashboard = () => {
+  // hardcoded for now, will come from Redux later
+  const tasks = [
+    {
+      id: "1",
+      title: "Fix login bug",
+      description: "Users cannot login with special characters in password",
+      taskType: "Bug",
+      priority: "High",
+      status: "In Progress",
+      assigneeId: "1",
+      dueDate: "2024-02-15",
+      severity: "Medium",
+      subtasks: [
+        { id: "sub1", completed: true },
+        { id: "sub2", completed: false },
+      ],
+    },
+  ];
   return (
     <>
       <div className="dashboard-wrapper">
@@ -17,6 +37,7 @@ const TaskDashboard = () => {
         </div>
         {/* Header code*/}
 
+        {/* Filter code */}
         <div className="filter-bar card">
           <input
             type="text"
@@ -64,6 +85,15 @@ const TaskDashboard = () => {
             Clear Filters
           </button>
         </div>
+        {/* Filter code */}
+        {/* card  */}
+
+        <TaskList
+          tasks={tasks}
+          onEditTask={(id) => console.log("edit", id)}
+          onDeleteTask={(id) => console.log("delete", id)}
+        />
+        {/* card  */}
       </div>
     </>
   );

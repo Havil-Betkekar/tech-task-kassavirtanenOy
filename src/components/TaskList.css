@@ -1,0 +1,38 @@
+.task-list-loading {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.loading-spinner {
+  display: inline-block;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.task-list-empty {
+  text-align: center;
+  padding: 48px;
+  color: #6b7280;
+}
+
+.task-list-empty h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.task-list-empty p {
+  font-size: 14px;
+}
