@@ -256,3 +256,7 @@ export const TASK_TYPES = ["Bug", "Feature", "Enhancement", "Research"];
 export const PRIORITIES = ["Low", "Medium", "High", "Critical"];
 export const STATUSES = ["Todo", "In Progress", "Review", "Done"];
 export const BUG_SEVERITIES = ["Low", "Medium", "High", "Critical"];
+
+// added by Havil
+export const MOCK_USERS = mockUsers;
+export const MOCK_PROJECTS = mockProjects;
