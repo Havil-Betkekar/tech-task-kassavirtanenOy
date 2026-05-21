@@ -7,8 +7,11 @@ import {
   MOCK_PROJECTS,
 } from "../api/mockApi";
 import "./TaskForm.css";
+import { useDispatch } from "react-redux";
+import { createTaskRequest, closeTaskForm } from "../store/actions/actions";
 
-const TaskForm = ({ isOpen, onClose, onSubmit }) => {
+const TaskForm = ({ isOpen, onClose }) => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -69,7 +72,7 @@ const TaskForm = ({ isOpen, onClose, onSubmit }) => {
     : MOCK_USERS;
 
   const handleFormSubmit = async (data) => {
-    await onSubmit(data);
+    dispatch(createTaskRequest(data));
     reset();
     onClose();
   };

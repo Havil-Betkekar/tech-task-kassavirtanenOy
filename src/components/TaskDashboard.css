@@ -109,3 +109,18 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
 }
+
+.error-banner {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.btn-clear-filters.active {
+  color: #374151;
+  cursor: pointer;
+  border-color: #9ca3af;
+}
